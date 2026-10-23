@@ -1,4 +1,17 @@
-# LST_FE2026_Lote_funndador
+# LST_FE2026_Lote_fundador
+
+Boa tarde, pessoal. Quem expôs na FE2026 está hoje com a lista do estande na mão.
+
+Pelo que ouvi de vocês, são pelo menos 2 dias com 4 pessoas ligando uma por uma para descobrir quem realmente quer comprar. A LAVÔ confirmou esse cenário.
+
+Dá para inverter isso: em vez de o time ligar para todos, você manda um link e a própria lista se qualifica. Cada contato responde em 2 minutos, recebe uma nota, e o time liga na ordem de prioridade — não na ordem da planilha.
+
+Abri 3 vagas para montar esse qualificador comigo, no menor preço que ele vai ter. Quem quer concorrer, responde este quiz de 2 minutos — ele já mostra sua nota e sua posição: <link>
+
+As 3 maiores notas levam as vagas. Fecho segunda, 26/10/26 às 13h.
+
+
+
 
 LST — seu lead chega qualificado, com pontuação de prioridade.
 
