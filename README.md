@@ -10,6 +10,8 @@ Abri 3 vagas para montar esse qualificador comigo, no menor preço que ele vai t
 
 As 3 maiores notas levam as vagas. Fecho segunda, 26/10/26 às 13h.
 
+Acesse:
+https://fnwdoc.github.io/LST_FE2026_Lote_fundador/
 
 
 
