@@ -1,0 +1,1 @@
+# LST_FE2026_Lote_funndador
