@@ -253,11 +253,21 @@ body {
   padding-top: calc(var(--pad-top) * 0.5);
   padding-left: max(var(--pad-side), env(safe-area-inset-left, 16px));
   padding-right: max(var(--pad-side), env(safe-area-inset-right, 16px));
-  padding-bottom: max(var(--pad-bottom), env(safe-area-inset-bottom, 20px));
+  /* +58px reserva a faixa do botao flutuante "Guia & FAQ" para ele nunca cobrir o CTA */
+  padding-bottom: calc(max(var(--pad-bottom), env(safe-area-inset-bottom, 20px)) + 58px);
   flex: 1;
   display: flex;
   flex-direction: column;
 }
+
+/* FAQ do drawer (Guia & FAQ) */
+.faq-mini { background: var(--plug-bullets-bg); border: 1px solid rgba(128,128,128,0.18); border-radius: 12px; }
+.faq-mini summary { cursor: pointer; padding: 12px 14px; font-size: 12px; font-weight: 700; color: var(--plug-text-main); list-style: none; display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.faq-mini summary::-webkit-details-marker { display: none; }
+.faq-mini summary:focus { outline: none; }
+.faq-mini .faq-plus { color: var(--plug-text-sub); font-weight: 900; transition: transform .2s ease; line-height: 1; }
+.faq-mini[open] .faq-plus { transform: rotate(45deg); }
+.faq-mini p { padding: 0 14px 12px; margin: 0; font-size: 11px; line-height: 1.65; color: var(--plug-text-sub); }
 
 .progress-bar { background: linear-gradient(90deg, var(--plug-gold), #79b8ff); transition: width .7s cubic-bezier(.4,0,.2,1); }
 
@@ -624,7 +634,7 @@ input:focus, select:focus {
       <div class="flex justify-between items-center pb-3 border-b" style="border-color:rgba(128,128,128,0.15);">
         <div class="flex items-center gap-2">
           <span class="text-base">📖</span>
-          <h3 class="text-xs font-black uppercase tracking-wider" style="color:var(--plug-text-main); font-weight:800;">O QUE VOCÊ RECEBE NO LOTE FUNDADOR</h3>
+          <h3 class="text-xs font-black uppercase tracking-wider" style="color:var(--plug-text-main); font-weight:800;">GUIA DO LOTE FUNDADOR & FAQ</h3>
         </div>
         <button onclick="closeDrawer()" class="hover:opacity-80 text-lg p-1 transition cursor-pointer" style="color:var(--plug-text-sub); background:none; border:none;" title="Fechar">✕</button>
       </div>
@@ -664,6 +674,44 @@ input:focus, select:focus {
       <p class="text-[11px] leading-relaxed" style="color:var(--plug-text-sub);">Hospedagem, link ativo e acompanhamento dos leads que entram. Custo de infraestrutura mínimo, sem surpresa.</p>
     </div>
   
+      </div>
+
+      <div class="space-y-2.5" id="drawer-faq-bloco">
+        <div class="text-[10px] font-black uppercase tracking-wider flex items-center gap-1.5" style="color:var(--plug-gold);">
+          <span>❓</span> Perguntas Frequentes
+        </div>
+    <details class="faq-mini">
+      <summary><span>O que é o LST? É um chatbot?</span><span class="faq-plus">+</span></summary>
+      <p>Não é um chatbot de conversas genéricas. O LST é um qualificador: faz 8 perguntas de triagem em cerca de 60 segundos, pontua o lead de 0 a 100 e entrega organizado quem tem perfil, verba e urgência para comprar.</p>
+    </details>
+    <details class="faq-mini">
+      <summary><span>O que eu recebo no lote fundador?</span><span class="faq-plus">+</span></summary>
+      <p>Três coisas: o setup do seu qualificador sob medida (perguntas, critérios de nota e faixas), uma sessão de implementação para calibrar o que qualifica e o que desqualifica, e a mensalidade com o link no ar e acompanhamento dos leads que entram.</p>
+    </details>
+    <details class="faq-mini">
+      <summary><span>Como os leads chegam até mim?</span><span class="faq-plus">+</span></summary>
+      <p>Você recebe um link próprio e o QR Code para usar em estande, bio, anúncio ou prospecção. Cada resposta cai na planilha com a pontuação na hora. Quem entra na faixa qualificada é liberado para falar com você no WhatsApp; os demais ficam registrados sem consumir seu tempo.</p>
+    </details>
+    <details class="faq-mini">
+      <summary><span>Quanto tempo leva para estar no ar?</span><span class="faq-plus">+</span></summary>
+      <p>Até 24 horas depois do alinhamento de implementação. O link é publicado e testado com você antes de você divulgar.</p>
+    </details>
+    <details class="faq-mini">
+      <summary><span>Minha equipe precisa instalar ou aprender alguma ferramenta?</span><span class="faq-plus">+</span></summary>
+      <p>Zero fricção. Nada para instalar e nada para treinar: a equipe só envia o link e acompanha a planilha. A configuração toda é feita por mim.</p>
+    </details>
+    <details class="faq-mini">
+      <summary><span>Funciona para o meu nicho?</span><span class="faq-plus">+</span></summary>
+      <p>Funciona para qualquer operação que recebe interessados no WhatsApp e precisa separar quem tem dinheiro e urgência de quem só está curioso: clínicas, estética, indústria B2B, imobiliário, consultorias, serviços e expositores de feira.</p>
+    </details>
+    <details class="faq-mini">
+      <summary><span>E se o meu perfil ficar em análise?</span><span class="faq-plus">+</span></summary>
+      <p>Seu diagnóstico fica registrado e entra na avaliação do lote 2. O contato comercial não é liberado neste momento; quando a vaga do seu perfil abrir, você é chamado na ordem da pontuação.</p>
+    </details>
+    <details class="faq-mini">
+      <summary><span>Como funciona a exclusividade por segmento?</span><span class="faq-plus">+</span></summary>
+      <p>Antes de fechar, confiro se já existe cliente ativo no mesmo segmento e na mesma região. Se houver conflito, a vaga não é aberta para o seu perfil.</p>
+    </details>
       </div>
 
       <div class="p-3.5 rounded-xl text-xs leading-relaxed" style="background:var(--plug-options-bg); border: 1px solid rgba(128,128,128,0.18);">
@@ -922,8 +970,8 @@ const questions = [
   }
 ];
 const classificationMode = "tiered";
-const binaryResults = {"qualified":{"badge":"🟡 PRÉ-APROVADO NO LOTE FUNDADOR","badgeColor":"var(--plug-gold)","cardBg":"rgba(0, 112, 243, 0.08)","borderColor":"rgba(0, 112, 243, 0.3)","title":"Seu perfil encaixa. Falta a confirmação.","desc":"Você tem dor real e capacidade de implementar. Está entre os pré-aprovados para uma das 3 vagas — a confirmação é uma conversa de 15 minutos para calibrar as perguntas do seu LST.","btnText":"CONFIRMAR MINHA VAGA NO WHATSAPP ›","action":"whatsapp"},"disqualified":{"badge":"⏸️ AINDA NÃO É O MOMENTO","badgeColor":"#94a3b8","cardBg":"rgba(148, 163, 184, 0.05)","borderColor":"rgba(148, 163, 184, 0.2)","title":"Seu perfil pede outro momento","desc":"Pelo que você respondeu, o LST ainda não resolve o seu gargalo principal. Você entra na lista de aviso quando o lote 2 abrir — e não ocupa uma das 3 vagas agora.","btnText":"VER O QUE PRECISA MUDAR ›","action":"drawer"}};
-const scoreTiers = {"low":{"name":"Fora do lote agora","min":0,"max":44,"badge":"⏸️ AINDA NÃO É O MOMENTO","badgeColor":"#94a3b8","cardBg":"rgba(148,163,184,0.05)","borderColor":"rgba(148,163,184,0.2)","title":"Seu perfil pede outro momento","desc":"Pelo que você respondeu, o LST ainda não resolve o seu gargalo principal. Você entra na lista de aviso quando o lote 2 abrir — e não ocupa uma das 3 vagas agora.","btnText":"VER O QUE PRECISA MUDAR ›","action":"drawer"},"mid":{"name":"Fila de espera — lote 2","min":45,"max":69,"badge":"🔵 PERFIL COMPATÍVEL COM O LOTE 2","badgeColor":"#3b82f6","cardBg":"rgba(59,130,246,0.06)","borderColor":"rgba(59,130,246,0.25)","title":"Faz sentido, mas não é prioridade máxima","desc":"O LST resolve a sua dor, mas há um ponto de volume, urgência ou disponibilidade que hoje te coloca atrás dos 3 primeiros. Você fica na fila do lote 2 com o preço do lote 2.","btnText":"VER O QUE FALTA PARA ENTRAR ›","action":"whatsapp"},"high":{"name":"Pré-aprovado — lote fundador","min":70,"max":84,"badge":"🟡 PRÉ-APROVADO NO LOTE FUNDADOR","badgeColor":"#f59e0b","cardBg":"rgba(245,158,11,0.08)","borderColor":"rgba(245,158,11,0.3)","title":"Seu perfil encaixa. Falta a confirmação.","desc":"Você tem dor real e capacidade de implementar. Está entre os pré-aprovados para uma das 3 vagas — a confirmação é uma conversa de 15 minutos para calibrar as perguntas do seu LST.","btnText":"CONFIRMAR MINHA VAGA NO WHATSAPP ›","action":"whatsapp"},"elite":{"name":"Vaga garantida — lote fundador","min":85,"max":100,"badge":"🟢 PRIORIDADE MÁXIMA — LOTE FUNDADOR","badgeColor":"#10b981","cardBg":"rgba(16,185,129,0.08)","borderColor":"rgba(16,185,129,0.35)","title":"Você é o perfil que o LST foi feito para atender","desc":"Poder de decisão, volume, dor clara e urgência. Sua vaga no lote fundador está reservada por 72 horas. O próximo passo é uma sessão de 20 minutos para montar o seu qualificador.","btnText":"RESERVAR MINHA VAGA AGORA ›","action":"whatsapp"}};
+const binaryResults = {"qualified":{"badge":"🟡 PRÉ-APROVADO NO LOTE FUNDADOR","badgeColor":"var(--plug-gold)","cardBg":"rgba(0, 112, 243, 0.08)","borderColor":"rgba(0, 112, 243, 0.3)","title":"Seu perfil encaixa. Falta a confirmação.","desc":"Você tem dor real e capacidade de implementar. Está entre os pré-aprovados para uma das 3 vagas — a confirmação é uma conversa de 15 minutos para calibrar as perguntas do seu LST.","btnText":"CONFIRMAR MINHA VAGA NO WHATSAPP ›","action":"whatsapp"},"disqualified":{"badge":"⏸️ DESQUALIFICADO — AINDA NÃO É O MOMENTO","badgeColor":"#94a3b8","cardBg":"rgba(148, 163, 184, 0.05)","borderColor":"rgba(148, 163, 184, 0.2)","title":"Seu perfil pede outro momento","desc":"Pelo que você respondeu, o LST ainda não resolve o seu gargalo principal. Você entra na lista de aviso quando o lote 2 abrir — e não ocupa uma das 3 vagas agora.","btnText":"VER O QUE PRECISA MUDAR ›","action":"drawer"}};
+const scoreTiers = {"low":{"name":"Fora do lote agora","min":0,"max":44,"badge":"⏸️ DESQUALIFICADO — AINDA NÃO É O MOMENTO","badgeColor":"#94a3b8","cardBg":"rgba(148,163,184,0.05)","borderColor":"rgba(148,163,184,0.2)","title":"Seu perfil pede outro momento","desc":"Pelo que você respondeu, o LST ainda não resolve o seu gargalo principal. Você entra na lista de aviso quando o lote 2 abrir — e não ocupa uma das 3 vagas agora.","btnText":"VER O QUE PRECISA MUDAR ›","action":"drawer"},"mid":{"name":"Em análise","min":45,"max":69,"badge":"🔵 EM ANÁLISE — AVALIAÇÃO DO PERFIL","badgeColor":"#3b82f6","cardBg":"rgba(59,130,246,0.06)","borderColor":"rgba(59,130,246,0.25)","title":"Seu perfil está em análise","desc":"O LST resolve a sua dor, mas há um ponto de volume, urgência ou disponibilidade que hoje te coloca atrás dos 3 primeiros. Seu perfil fica em análise para o lote 2 — neste momento o contato comercial não é liberado.","btnText":"VER O QUE FALTA PARA ENTRAR ›","action":"whatsapp"},"high":{"name":"Pré-aprovado — lote fundador","min":70,"max":84,"badge":"🟡 PRÉ-APROVADO NO LOTE FUNDADOR","badgeColor":"#f59e0b","cardBg":"rgba(245,158,11,0.08)","borderColor":"rgba(245,158,11,0.3)","title":"Seu perfil encaixa. Falta a confirmação.","desc":"Você tem dor real e capacidade de implementar. Está entre os pré-aprovados para uma das 3 vagas — a confirmação é uma conversa de 15 minutos para calibrar as perguntas do seu LST.","btnText":"CONFIRMAR MINHA VAGA NO WHATSAPP ›","action":"whatsapp"},"elite":{"name":"Vaga garantida — lote fundador","min":85,"max":100,"badge":"🟢 PRIORIDADE MÁXIMA — LOTE FUNDADOR","badgeColor":"#10b981","cardBg":"rgba(16,185,129,0.08)","borderColor":"rgba(16,185,129,0.35)","title":"Você é o perfil que o LST foi feito para atender","desc":"Poder de decisão, volume, dor clara e urgência. Sua vaga no lote fundador está reservada por 72 horas. O próximo passo é uma sessão de 20 minutos para montar o seu qualificador.","btnText":"RESERVAR MINHA VAGA AGORA ›","action":"whatsapp"}};
 const minScore = 70;
 const targetWhatsapp = "5511911595028";
 const webhookEndpoints = ["https://script.google.com/macros/s/AKfycbzfYYCEa_qPoUkw02hBQpCm01fjDbC9gJJEZqUp19jak2tlUu0ANOlEk9jCXwZFqdc/exec"];
@@ -1804,7 +1852,7 @@ function generateResult(e) {
     dispatchTrackingEvent(cadEv, {
       score: totalScore,
       qualificado: isQual,
-      status_qualificacao: hasKnockout ? 'DESQUALIFICADO_KNOCKOUT' : (isQual ? 'QUALIFICADO' : 'DESQUALIFICADO'),
+      status_qualificacao: hasKnockout ? 'DESQUALIFICADO_KNOCKOUT' : (isQual ? 'QUALIFICADO' : (totalScore >= 45 ? 'EM_ANALISE' : 'DESQUALIFICADO')),
       segmento: tipo,
       faturamento: faturamento,
       cidade: localizacao
@@ -1844,7 +1892,7 @@ function generateResult(e) {
       campos_customizados: customFieldsData,
       score: totalScore,
       pontos_extras_form: formExtraScore,
-      status_qualificacao: hasKnockout ? 'DESQUALIFICADO_KNOCKOUT' : (isQual ? 'QUALIFICADO' : 'DESQUALIFICADO'),
+      status_qualificacao: hasKnockout ? 'DESQUALIFICADO_KNOCKOUT' : (isQual ? 'QUALIFICADO' : (totalScore >= 45 ? 'EM_ANALISE' : 'DESQUALIFICADO')),
       classificacao_modo: classificationMode,
       classificacao_estagio: classificationMode === 'binary' ? (isQual ? 'Qualificado' : 'Não Qualificado') : (totalScore >= 85 ? (scoreTiers.elite?.name || 'Prioridade') : (totalScore >= minScore ? (scoreTiers.high?.name || 'Oportunidade') : (totalScore >= 40 ? (scoreTiers.mid?.name || 'Oportunidade em desenvolvimento') : (scoreTiers.low?.name || 'Exploração')))),
       knockout_motivo: knockoutMotivo || null,
@@ -1893,7 +1941,7 @@ function generateResult(e) {
           segmento: tipo,
           faturamento: faturamento,
           score: totalScore,
-          status_qualificacao: hasKnockout ? 'DESQUALIFICADO_KNOCKOUT' : (isQual ? 'QUALIFICADO' : 'DESQUALIFICADO'),
+          status_qualificacao: hasKnockout ? 'DESQUALIFICADO_KNOCKOUT' : (isQual ? 'QUALIFICADO' : (totalScore >= 45 ? 'EM_ANALISE' : 'DESQUALIFICADO')),
           knockout_motivo: knockoutMotivo || '',
           utms: pageUtms,
           respostas: respostasCompletas,
