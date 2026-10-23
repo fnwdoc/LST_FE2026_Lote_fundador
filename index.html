@@ -360,6 +360,19 @@ input:focus, select:focus {
   }
   #drawer-educativo.open #drawer-content { transform: translateY(0); }
 }
+
+.btn-next-warn {
+  border: 1px solid #f87171 !important;
+  color: #f87171 !important;
+}
+@keyframes optWarnPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(248, 113, 113, 0); }
+  50% { box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.38); }
+}
+.opt-warn {
+  animation: optWarnPulse 0.6s ease 2;
+  border-radius: 14px;
+}
 </style>
 </head>
 <body>
@@ -1430,8 +1443,24 @@ function renderQuestion() {
 
 function nextQuestion() {
   if (userScores[currentStep] === undefined && questions[currentStep] && questions[currentStep].options && questions[currentStep].options.length > 0) {
-    var defaultOpt = questions[currentStep].options[0];
-    userScores[currentStep] = { index: 0, score: defaultOpt.score, txt: defaultOpt.txt, pilar: questions[currentStep].pilar, pergunta: questions[currentStep].question, isKnockout: !!defaultOpt.isKnockout };
+    var btnN = document.getElementById('btn-next');
+    if (btnN && !btnN.dataset.warned) {
+      var labelOriginal = btnN.innerHTML;
+      btnN.dataset.warned = '1';
+      btnN.innerHTML = 'SELECIONE UMA OPÇÃO';
+      btnN.classList.add('btn-next-warn');
+      setTimeout(function () {
+        btnN.innerHTML = labelOriginal;
+        btnN.classList.remove('btn-next-warn');
+        delete btnN.dataset.warned;
+      }, 1800);
+    }
+    var contW = document.getElementById('options-container');
+    if (contW) {
+      contW.classList.add('opt-warn');
+      setTimeout(function () { contW.classList.remove('opt-warn'); }, 1200);
+    }
+    return;
   }
 
   // Verificação de Rota de Desqualificação Antecipada (P1 a P3)
