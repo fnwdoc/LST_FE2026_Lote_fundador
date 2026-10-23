@@ -923,7 +923,7 @@ const questions = [
 ];
 const classificationMode = "tiered";
 const binaryResults = {"qualified":{"badge":"🟡 PRÉ-APROVADO NO LOTE FUNDADOR","badgeColor":"var(--plug-gold)","cardBg":"rgba(0, 112, 243, 0.08)","borderColor":"rgba(0, 112, 243, 0.3)","title":"Seu perfil encaixa. Falta a confirmação.","desc":"Você tem dor real e capacidade de implementar. Está entre os pré-aprovados para uma das 3 vagas — a confirmação é uma conversa de 15 minutos para calibrar as perguntas do seu LST.","btnText":"CONFIRMAR MINHA VAGA NO WHATSAPP ›","action":"whatsapp"},"disqualified":{"badge":"⏸️ AINDA NÃO É O MOMENTO","badgeColor":"#94a3b8","cardBg":"rgba(148, 163, 184, 0.05)","borderColor":"rgba(148, 163, 184, 0.2)","title":"Seu perfil pede outro momento","desc":"Pelo que você respondeu, o LST ainda não resolve o seu gargalo principal. Você entra na lista de aviso quando o lote 2 abrir — e não ocupa uma das 3 vagas agora.","btnText":"VER O QUE PRECISA MUDAR ›","action":"drawer"}};
-const scoreTiers = {"low":{"name":"Fora do lote agora","min":0,"max":44,"badge":"⏸️ AINDA NÃO É O MOMENTO","badgeColor":"#94a3b8","cardBg":"rgba(148,163,184,0.05)","borderColor":"rgba(148,163,184,0.2)","title":"Seu perfil pede outro momento","desc":"Pelo que você respondeu, o LST ainda não resolve o seu gargalo principal. Você entra na lista de aviso quando o lote 2 abrir — e não ocupa uma das 3 vagas agora.","btnText":"VER O QUE PRECISA MUDAR ›","action":"drawer"},"mid":{"name":"Fila de espera — lote 2","min":45,"max":69,"badge":"🔵 PERFIL COMPATÍVEL COM O LOTE 2","badgeColor":"#3b82f6","cardBg":"rgba(59,130,246,0.06)","borderColor":"rgba(59,130,246,0.25)","title":"Faz sentido, mas não é prioridade máxima","desc":"O LST resolve a sua dor, mas há um ponto de volume, urgência ou disponibilidade que hoje te coloca atrás dos 3 primeiros. Você fica na fila do lote 2 com o preço do lote 2.","btnText":"ENTRAR NA FILA DO LOTE 2 ›","action":"whatsapp"},"high":{"name":"Pré-aprovado — lote fundador","min":70,"max":84,"badge":"🟡 PRÉ-APROVADO NO LOTE FUNDADOR","badgeColor":"#f59e0b","cardBg":"rgba(245,158,11,0.08)","borderColor":"rgba(245,158,11,0.3)","title":"Seu perfil encaixa. Falta a confirmação.","desc":"Você tem dor real e capacidade de implementar. Está entre os pré-aprovados para uma das 3 vagas — a confirmação é uma conversa de 15 minutos para calibrar as perguntas do seu LST.","btnText":"CONFIRMAR MINHA VAGA NO WHATSAPP ›","action":"whatsapp"},"elite":{"name":"Vaga garantida — lote fundador","min":85,"max":100,"badge":"🟢 PRIORIDADE MÁXIMA — LOTE FUNDADOR","badgeColor":"#10b981","cardBg":"rgba(16,185,129,0.08)","borderColor":"rgba(16,185,129,0.35)","title":"Você é o perfil que o LST foi feito para atender","desc":"Poder de decisão, volume, dor clara e urgência. Sua vaga no lote fundador está reservada por 72 horas. O próximo passo é uma sessão de 20 minutos para montar o seu qualificador.","btnText":"RESERVAR MINHA VAGA AGORA ›","action":"whatsapp"}};
+const scoreTiers = {"low":{"name":"Fora do lote agora","min":0,"max":44,"badge":"⏸️ AINDA NÃO É O MOMENTO","badgeColor":"#94a3b8","cardBg":"rgba(148,163,184,0.05)","borderColor":"rgba(148,163,184,0.2)","title":"Seu perfil pede outro momento","desc":"Pelo que você respondeu, o LST ainda não resolve o seu gargalo principal. Você entra na lista de aviso quando o lote 2 abrir — e não ocupa uma das 3 vagas agora.","btnText":"VER O QUE PRECISA MUDAR ›","action":"drawer"},"mid":{"name":"Fila de espera — lote 2","min":45,"max":69,"badge":"🔵 PERFIL COMPATÍVEL COM O LOTE 2","badgeColor":"#3b82f6","cardBg":"rgba(59,130,246,0.06)","borderColor":"rgba(59,130,246,0.25)","title":"Faz sentido, mas não é prioridade máxima","desc":"O LST resolve a sua dor, mas há um ponto de volume, urgência ou disponibilidade que hoje te coloca atrás dos 3 primeiros. Você fica na fila do lote 2 com o preço do lote 2.","btnText":"VER O QUE FALTA PARA ENTRAR ›","action":"whatsapp"},"high":{"name":"Pré-aprovado — lote fundador","min":70,"max":84,"badge":"🟡 PRÉ-APROVADO NO LOTE FUNDADOR","badgeColor":"#f59e0b","cardBg":"rgba(245,158,11,0.08)","borderColor":"rgba(245,158,11,0.3)","title":"Seu perfil encaixa. Falta a confirmação.","desc":"Você tem dor real e capacidade de implementar. Está entre os pré-aprovados para uma das 3 vagas — a confirmação é uma conversa de 15 minutos para calibrar as perguntas do seu LST.","btnText":"CONFIRMAR MINHA VAGA NO WHATSAPP ›","action":"whatsapp"},"elite":{"name":"Vaga garantida — lote fundador","min":85,"max":100,"badge":"🟢 PRIORIDADE MÁXIMA — LOTE FUNDADOR","badgeColor":"#10b981","cardBg":"rgba(16,185,129,0.08)","borderColor":"rgba(16,185,129,0.35)","title":"Você é o perfil que o LST foi feito para atender","desc":"Poder de decisão, volume, dor clara e urgência. Sua vaga no lote fundador está reservada por 72 horas. O próximo passo é uma sessão de 20 minutos para montar o seu qualificador.","btnText":"RESERVAR MINHA VAGA AGORA ›","action":"whatsapp"}};
 const minScore = 70;
 const targetWhatsapp = "5511911595028";
 const webhookEndpoints = ["https://script.google.com/macros/s/AKfycbzfYYCEa_qPoUkw02hBQpCm01fjDbC9gJJEZqUp19jak2tlUu0ANOlEk9jCXwZFqdc/exec"];
@@ -1153,13 +1153,27 @@ window.renderResultScreen = function(score, customData) {
       tier = scoreTiers.elite;
     } else if (totalScore >= minScore) {
       tier = scoreTiers.high;
-    } else if (totalScore >= 40) {
+    } else if (totalScore >= 45) {
       tier = scoreTiers.mid;
     } else {
       tier = scoreTiers.low;
     }
     // Regra Soberana: a nota mínima de corte continua sendo a regra para liberar o contato comercial
     isContactUnlocked = totalScore >= minScore;
+
+    // Faixa 1: knockout tem tela propria e nunca libera contato
+    if (window.__lstKnockout && window.__lstKnockout.has) {
+      tier = {
+        badge: "🚫 PERFIL ELIMINADO — CRITÉRIO OBRIGATÓRIO",
+        badgeColor: "#ef4444",
+        cardBg: "rgba(239,68,68,0.08)",
+        borderColor: "rgba(239,68,68,0.35)",
+        title: "Perfil fora do escopo desta seleção",
+        desc: "Uma das suas respostas é um critério eliminatório do lote fundador" + (window.__lstKnockout.motivo ? ": " + window.__lstKnockout.motivo : "") + ". Você pode voltar quando esse critério mudar.",
+        btnText: "VER O QUE PRECISA MUDAR ›"
+      };
+      isContactUnlocked = false;
+    }
   }
 
   const resStatus = document.getElementById('result-status');
@@ -1745,9 +1759,9 @@ function generateResult(e) {
     rawScore += optScore * weight;
     
     // Cálculo do máximo possível por pergunta ponderada
-    let maxOpt = 15;
+    let maxOpt = 0;
     if (q.options && q.options.length) {
-      maxOpt = Math.max.apply(null, q.options.map(function(o) { return o.score || 0; }).concat([15]));
+      maxOpt = Math.max.apply(null, q.options.map(function(o) { return o.score || 0; }).concat([0]));
     }
     maxPossible += maxOpt * weight;
 
@@ -1760,6 +1774,7 @@ function generateResult(e) {
   let calculatedScore = Math.min(Math.round((rawScore / (maxPossible || 1)) * 100) + formExtraScore, 100);
   // Se houver Knockout, trava a pontuação no Tier Low (Score 30) para proteger o WhatsApp
   let totalScore = hasKnockout ? Math.min(calculatedScore, 30) : calculatedScore;
+  window.__lstKnockout = { has: !!hasKnockout, motivo: knockoutMotivo || '' };
   let isQual = totalScore >= minScore && !hasKnockout;
   
   document.getElementById('screen-lead').classList.add('hidden');
